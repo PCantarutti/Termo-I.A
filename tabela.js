@@ -1,7 +1,25 @@
+  // define as palavras possiveis do jogo
+  const palavras = [
+    "canto", "falar", "linda", "morar", "pouco", "verde", "terra", "carro", "feliz", "amigo",
+    "jogar", "vento", "praia", "corpo", "longe", "curta", "brava", "banho", "grato", "ponto",
+    "certo", "custo", "calmo", "nuvem", "caixa", "porta", "rampa", "limpo", "ostra", "traje",
+    "roupa", "trigo", "fruta", "pedra", "justo", "longo", "fosco", "folha", "nevoa", "vento",
+    "molho", "leito", "lucro", "matiz", "haste", "flora", "troca", "carne", "fenda", "peito",
+    "vapor", "vazio", "truco", "visto", "ferro", "livro", "prato", "brisa", "nobre", "talho",
+    "meiga", "prego", "navio", "manga", "farda", "feira", "meigo", "regra", "sagaz", "ritmo",
+    "tempo", "barra", "areia", "chuva", "tarde", "remar", "queda", "monta", "tenue", "tocar",
+    "limpa", "cegar", "rosca", "norte", "lugar", "plano", "leque", "vinho", "fauna", "suave",
+    "haste", "traje", "toque", "monte", "nuvem", "fugaz", "haste", "breve", "firma", "cinto"
+  ];
+
+  // seleciona uma palavra dentro do array palavras aleatoriamente entre 0 e o numero máximo de elementos em palavras menos 1
+  let numero = Math.floor(Math.random() * palavras.length); 
+  let palavra = palavras[numero];
+  palavra = palavra.toUpperCase();
+  console.log(palavra);
+
 document.addEventListener('DOMContentLoaded', function() {
   let meuInput = document.getElementById('ultimo-input');
-
-  let palavra = 'dueto'.toUpperCase();
 
   // Aplicar conversão para maiúsculas na primeira linha de inputs
   const initialInputs = document.querySelectorAll('.single-char-input');
@@ -17,27 +35,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const activeElement = document.activeElement;
   
     if (key === 'Enter' && activeElement.id === 'ultimo-input' && activeElement.value !== '') {
-      condicao(); // Call function condicao when Enter is pressed in 'ultimo-input' with a value
+      condicao(); // Chama a função condicao quando Enter é pressionado em um input com id 'ultimo-input' com um valor dentro
       setTimeout(() => {
-        document.getElementById('1-input').focus();
+        const inputElement = document.getElementById('1-input');
+        if (inputElement) {
+          inputElement.focus();
+        } else {
+          // Se todos os elementos com esse id forem apagados, mostrar uma mensagem de erro.
+          console.warn('Elemento com ID "1-input" não encontrado.');
+        }
     }, 1);
 
     } else if (key === 'ArrowLeft' && activeElement.classList.contains('single-char-input')) {
-      // Move focus to previous input (with delay)
+      // Move o foco para o input anterior
       const previousInput = activeElement.previousElementSibling;
       if (previousInput && previousInput.classList.contains('single-char-input')) {
-        setTimeout(() => {
-          previousInput.focus();
-        }, 10); // Adjust delay as needed (in milliseconds)
+        previousInput.focus();
       }
     } else if ((key === 'ArrowRight' || key === ' ' || key === 'Enter') && activeElement.classList.contains('single-char-input') && activeElement.value !== '') {
-      // Move focus to next input
+      // Move o foco para o input seguinte
       const nextInput = activeElement.nextElementSibling;
       if (nextInput && nextInput.classList.contains('single-char-input')) {
         nextInput.focus();
       }
     } else if ((key >= 'a' && key <= 'z') && activeElement.classList.contains('single-char-input')) {
-      // Move focus to next input
+      // Move focus to next input (com delay para não digitar no rpoximo input sem querer)
       const nextInput = activeElement.nextElementSibling;
       activeElement.value = key.toUpperCase();
       setTimeout(() => {
@@ -46,14 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }, 1);
     } else if (key === 'Backspace' && activeElement.classList.contains('single-char-input')) {
-      if (activeElement.value === '') { // Prevent clearing previous input if empty
+      if (activeElement.value === '') { // previne de limpar input anterior se o atual estiver vazio
         const previousInput = activeElement.previousElementSibling;
         if (previousInput && previousInput.classList.contains('single-char-input')) {
           previousInput.focus();
-          previousInput.value = ''; // Clear previous input only if current is empty
+          previousInput.value = ''; // limpa o input atual se o anterior estiver vazio
         }
       } else {
-        activeElement.value = ''; // Clear current input if it has a value
+        activeElement.value = ''; // limpar o input atual se tiver um valor
       }
     }
   });
@@ -66,13 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
               this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();
           });
           
-            if (input.classList.contains('ativo')) {   
+            if (input.classList.contains('ativo')) { 
               for (let i = 0; i < palavra.length; i++) {
                 if ((input.id === (i+1) + '-input') && input.value === palavra[i]) {
                     input.disabled = true;
                     input.classList.remove('ativo');
                     input.classList.add('desativado');
-                    input.id = ''
                     input.style.backgroundColor = "darkgreen";
                     input.style.borderColor = "darkgreen";
                     input.autofocus = false;
@@ -82,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   input.disabled = true;
                   input.classList.remove('ativo');
                   input.classList.add('desativado');
-                  input.id = ''
                   input.style.backgroundColor = "darkgreen";
                   input.style.borderColor = "darkgreen";
                   input.autofocus = false;
@@ -92,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.disabled = true;
                     input.classList.remove('ativo');
                     input.classList.add('desativado');
-                    input.id = ''
                     input.style.backgroundColor = "yellow";
                     input.style.borderColor = "yellow";
                     input.autofocus = false;
@@ -104,8 +123,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.classList.remove('ativo');
                     input.classList.add('desativado');
                     input.autofocus = false;
+
+                    if (!input.previousSibling || !input.previousElementSibling){
+                      break;
+                    } else {
+                      input.previousElementSibling.removeAttribute('id');
+                    }
                 }
-            }
+              }
             }
       });
 
@@ -127,6 +152,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const formulario = document.getElementById('formulario');
       const divsNoFormulario = formulario.querySelectorAll('div');
       const numeroDeDivs = divsNoFormulario.length;
+      const tentativas = document.getElementById('tentativas');
+      tentativas.innerText = 6 - numeroDeDivs;
       console.log('Número de divs no formulário:', numeroDeDivs);
 
       if (numeroDeDivs < 6) {
