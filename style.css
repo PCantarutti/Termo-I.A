@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+:root {
+    --cor-primaria: #38302e;
+    --cor-secundaria: #6f6866;
+    --cor-terciaria: #ccdad1;
+    --fonte-principal: "Concert One", sans-serif;
+    --fonte-secundaria: "Montserrat", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family:var(--fonte-principal);
+}
+
+body {
+    background-color: var(--cor-primaria);
+}
+
+.words {
+    display: flex;
+    justify-content: center;
+    gap: 0.4em;
+    margin: 0.4em;
+}
+
+input {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    font-size: xx-large;
+    border-radius: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--cor-secundaria);
+    font-size: 3.5rem;
+    color: var(--cor-terciaria);
+    background-color : var(--cor-primaria); 
+    outline: none;
+    caret-color: transparent;
+}
+
+input[disabled] {
+    color: #333;
+    background-color: var(--cor-secundaria); 
+    cursor: not-allowed; 
+  }
+
+input:focus {
+    border-bottom: 0.25em solid var(--cor-secundaria) !important;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0.5em 0 4em 0;
+}
+
+.cabecalho__menu {
+    color: var(--cor-terciaria);
+}
+
+.cabecalho__menu__link {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.titulo {
+    margin-right: 12.5%;
+    color: var(--cor-terciaria);
+}
+
+.controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 5em;
+}
+
+.prompt {
+    width: 300px;
+    height: 80%;
+}
