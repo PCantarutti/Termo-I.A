@@ -6,14 +6,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/button.css">
-    <script src="tabela.js"></script>
+    
     <title>Termo I.A</title>
 </head>
 <body>
     <header class="cabecalho">
         <nav class="cabecalho__menu">
-            <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://github.com/PCantarutti">GitHub</a>
-            <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://pedro-cantarutti.vercel.app/">Portfólio</a>
+            <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://github.com/PCantarutti" target="_blank">GitHub</a>
+            <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://pedro-cantarutti.vercel.app/" target="_blank">Portfólio</a>
             <a class="cabecalho__menu__link text-decoration-none text-reset" href="#">Sobre o projeto</a>
         </nav>
         <h1 class="titulo">TERMO I.A</h1>
@@ -40,10 +40,10 @@
     </header>  
     <section class="tabela" id="formulario">
         <div class="words" id="container">
-          <input type="text" class="single-char-input ativo" autocomplete="off" maxlength="1">
-          <input type="text" class="single-char-input ativo" autocomplete="off" maxlength="1">
-          <input type="text" class="single-char-input ativo" autocomplete="off" maxlength="1">
-          <input type="text" class="single-char-input ativo" autocomplete="off" maxlength="1">
+          <input type="text" id="1-input" class="single-char-input ativo" autocomplete="off" maxlength="1" autofocus>
+          <input type="text" id="2-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
+          <input type="text" id="3-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
+          <input type="text" id="4-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
           <input type="text" id="ultimo-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
         </div>
     </section>
@@ -61,5 +61,6 @@
               </div>
           </form>
     </section>
+    <script src="tabela.js"></script>
 </body>
 </html>

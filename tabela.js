@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   let meuInput = document.getElementById('ultimo-input');
 
+  let palavra = 'dueto'.toUpperCase();
+
   // Aplicar conversão para maiúsculas na primeira linha de inputs
   const initialInputs = document.querySelectorAll('.single-char-input');
   initialInputs.forEach(input => {
@@ -16,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
     if (key === 'Enter' && activeElement.id === 'ultimo-input' && activeElement.value !== '') {
       condicao(); // Call function condicao when Enter is pressed in 'ultimo-input' with a value
+      setTimeout(() => {
+        document.getElementById('1-input').focus();
+    }, 1);
+
     } else if (key === 'ArrowLeft' && activeElement.classList.contains('single-char-input')) {
       // Move focus to previous input (with delay)
       const previousInput = activeElement.previousElementSibling;
@@ -24,12 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
           previousInput.focus();
         }, 10); // Adjust delay as needed (in milliseconds)
       }
-    } else if ((key === 'ArrowRight' || key === ' ' || key === 'Enter' || (key >= 'a' && key <= 'z')) && activeElement.classList.contains('single-char-input') && activeElement.value !== '') {
+    } else if ((key === 'ArrowRight' || key === ' ' || key === 'Enter') && activeElement.classList.contains('single-char-input') && activeElement.value !== '') {
       // Move focus to next input
       const nextInput = activeElement.nextElementSibling;
       if (nextInput && nextInput.classList.contains('single-char-input')) {
         nextInput.focus();
       }
+    } else if ((key >= 'a' && key <= 'z') && activeElement.classList.contains('single-char-input')) {
+      // Move focus to next input
+      const nextInput = activeElement.nextElementSibling;
+      activeElement.value = key.toUpperCase();
+      setTimeout(() => {
+        if (nextInput && nextInput.classList.contains('single-char-input')) {
+            nextInput.focus();
+        }
+      }, 1);
     } else if (key === 'Backspace' && activeElement.classList.contains('single-char-input')) {
       if (activeElement.value === '') { // Prevent clearing previous input if empty
         const previousInput = activeElement.previousElementSibling;
@@ -50,29 +65,48 @@ document.addEventListener('DOMContentLoaded', function() {
           input.addEventListener('input', function() {
               this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase();
           });
-
-          if (input.classList.contains('ativo')) {   
-              if (input.value === 'V') {
+          
+            if (input.classList.contains('ativo')) {   
+              for (let i = 0; i < palavra.length; i++) {
+                if ((input.id === (i+1) + '-input') && input.value === palavra[i]) {
+                    input.disabled = true;
+                    input.classList.remove('ativo');
+                    input.classList.add('desativado');
+                    input.id = ''
+                    input.style.backgroundColor = "darkgreen";
+                    input.style.borderColor = "darkgreen";
+                    input.autofocus = false;
+                    break;
+                } 
+                else if ((input.id === 'ultimo-input') && input.value === palavra[4]) {
                   input.disabled = true;
                   input.classList.remove('ativo');
                   input.classList.add('desativado');
+                  input.id = ''
                   input.style.backgroundColor = "darkgreen";
                   input.style.borderColor = "darkgreen";
-              } 
-              else if (input.value === 'F') {
-                  input.disabled = true;
-                  input.classList.remove('ativo');
-                  input.classList.add('desativado');
-                  input.style.backgroundColor = "yellow";
-                  input.style.borderColor = "yellow";
-              } 
-              else {
-                  input.style.backgroundColor = "";
-                  input.disabled = true;
-                  input.classList.remove('ativo');
-                  input.classList.add('desativado');
-              }
-          }
+                  input.autofocus = false;
+                  break;
+                } 
+                else if ((input.id === (i+1) + '-input' || input.id === 'ultimo-input') && input.value != palavra[i] && palavra.includes(input.value)) {
+                    input.disabled = true;
+                    input.classList.remove('ativo');
+                    input.classList.add('desativado');
+                    input.id = ''
+                    input.style.backgroundColor = "yellow";
+                    input.style.borderColor = "yellow";
+                    input.autofocus = false;
+                    break;
+                } 
+                else {
+                    input.style.backgroundColor = "";
+                    input.disabled = true;
+                    input.classList.remove('ativo');
+                    input.classList.add('desativado');
+                    input.autofocus = false;
+                }
+            }
+            }
       });
 
       criarLinha(); // Chama a função para criar uma nova linha
@@ -104,6 +138,11 @@ document.addEventListener('DOMContentLoaded', function() {
               const novoInput = criarNovoInput();
               if (i === 4) {
                   novoInput.id = 'ultimo-input';  // Atribui o id ao último input
+              } else if (i < 4 && i != 0) {
+                novoInput.id = (i+1) + '-input';
+              } else if (i === 0) {
+                novoInput.id = '1-input';
+                novoInput.autofocus = true;
               }
               novaLinha.appendChild(novoInput);
           }
