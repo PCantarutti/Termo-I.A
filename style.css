@@ -76,12 +76,22 @@ input:focus {
 .controles {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     margin-bottom: 5em;
+    gap: 20px;
+}
+
+.texto-tentativas {
+    color: var(--cor-terciaria);
+}
+
+strong {
+    color: greenyellow;
 }
 
 .prompt {
