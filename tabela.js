@@ -1,16 +1,10 @@
-  // define as palavras possiveis do jogo
-  const palavras = [
-    "canto", "falar", "linda", "morar", "pouco", "verde", "terra", "carro", "feliz", "amigo",
-    "jogar", "vento", "praia", "corpo", "longe", "curta", "brava", "banho", "grato", "ponto",
-    "certo", "custo", "calmo", "nuvem", "caixa", "porta", "rampa", "limpo", "ostra", "traje",
-    "roupa", "trigo", "fruta", "pedra", "justo", "longo", "fosco", "folha", "nevoa", "vento",
-    "molho", "leito", "lucro", "matiz", "haste", "flora", "troca", "carne", "fenda", "peito",
-    "vapor", "vazio", "truco", "visto", "ferro", "livro", "prato", "brisa", "nobre", "talho",
-    "meiga", "prego", "navio", "manga", "farda", "feira", "meigo", "regra", "sagaz", "ritmo",
-    "tempo", "barra", "areia", "chuva", "tarde", "remar", "queda", "monta", "tenue", "tocar",
-    "limpa", "cegar", "rosca", "norte", "lugar", "plano", "leque", "vinho", "fauna", "suave",
-    "haste", "traje", "toque", "monte", "nuvem", "fugaz", "haste", "breve", "firma", "cinto"
-  ];
+  import json from './recuperar_json.js';
+
+  let palavras = json.palavras
+  let tema = json.tema
+
+  const indicarTema = document.getElementById('indicarTema');
+  indicarTema.innerText = tema;
 
   // seleciona uma palavra dentro do array palavras aleatoriamente entre 0 e o numero máximo de elementos em palavras menos 1
   let numero = Math.floor(Math.random() * palavras.length); 
@@ -19,7 +13,6 @@
   console.log(palavra);
 
 document.addEventListener('DOMContentLoaded', function() {
-  let meuInput = document.getElementById('ultimo-input');
 
   // Aplicar conversão para maiúsculas na primeira linha de inputs
   const initialInputs = document.querySelectorAll('.single-char-input');
@@ -175,9 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }
 
           formulario.appendChild(novaLinha);
-          
-          // Atualiza a referência ao último input
-          meuInput = document.getElementById('ultimo-input');
       }
   }
 });
