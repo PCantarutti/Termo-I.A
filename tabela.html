@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/tela_inicial.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/button.css">
     
     <title>Termo I.A</title>
@@ -37,30 +37,31 @@
             </div>
           </div>
         </label>
-    </header>
-    <section class="controles">
-      <div class="">
-        <button class="btn btn-success btn-lg botao__play" type="button" id="botao-play" href="tabela.html">JOGAR</button>
-      </div>
-        <div class="row g-3 area__prompt">
-            <div class="col-auto">
-              <label for="inputPassword2" class="visually-hidden">prompt</label>
-              <input autocomplete="off" class="prompt" id="input_prompt" placeholder="Digite um tema para o jogo">
-            </div>
-            <div class="col-auto">
-              <button class="btn btn-secondary btn-lg" id="Confirmar_prompt">Confirmar tema</button>
-            </div>
-          </div>
+    </header>  
+    <section class="tabela" id="formulario">
+        <div class="words" id="container">
+          <input type="text" id="1-input" class="single-char-input ativo" autocomplete="off" maxlength="1" autofocus>
+          <input type="text" id="2-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
+          <input type="text" id="3-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
+          <input type="text" id="4-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
+          <input type="text" id="ultimo-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
+        </div>
     </section>
-    <p id="resultadoGeracaoRuim"></p>
-    <p id="resultadoGeracaoBom"></p>
-    <script type="importmap">
-      {
-        "imports": {
-          "@google/generative-ai": "https://esm.run/@google/generative-ai"
-        }
-      }
-    </script>
-    <script src="gerador_palavras.js" type="module"></script>
+    <div class="informacao">
+      <h2 class="texto-tema">Tema: <strong id="indicarTema"></strong></h2>
+      <h2 class="texto-tentativas">Tentativas restantes: <strong id="tentativas">6</strong></h2>
+    </div>
+    <section class="controles">
+        <form class="row g-3">
+            <div class="col-auto botao">
+              <a type="button" class="btn btn-secondary mb-3" id="voltar" href="index.html">Mudar tema</a>
+            </div>
+            <div class="col-auto botao">
+                <button type="reset" class="btn btn-danger mb-3" onclick="location.reload()">Resetar jogo</button>
+              </div>
+          </form>
+    </section>
+    <script src="tabela.js" type="module"></script>
+    <script src="recuperar_json.js" type="module"></script>
 </body>
 </html>
