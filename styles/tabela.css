@@ -81,6 +81,19 @@ input:focus {
     border-bottom: 0.18em solid var(--cor-secundaria-escuro) !important;
 }
 
+#\32 -input {
+    pointer-events: none;
+}
+#\33 -input {
+    pointer-events: none;
+}
+#\34 -input {
+    pointer-events: none;
+}
+#ultimo-input {
+    pointer-events: none;
+}
+
 .cabecalho {
     display: flex;
     align-items: center;
