@@ -15,6 +15,17 @@
   let resultadoResposta = "";
 
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // Aplicar conversão para maiúsculas na linha de inputs
+  const initialInputs = document.querySelectorAll('.ativo');
+  initialInputs.forEach(input => {
+    input.addEventListener('input', function() {
+      if (this.value.length > 1) {
+        this.value = this.value.slice(0, 1);
+      }
+        this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase(); // Converte para maiúsculas
+    });
+  });
 
   // Listener para o Enter e teclas de navegação nos inputs
   document.addEventListener('keydown', function(event) {
@@ -65,18 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         activeElement.value = ''; // limpar o input atual se tiver um valor
       }
     }
-    
-    // Aplicar conversão para maiúsculas na linha de inputs
-    const initialInputs = document.querySelectorAll('.single-char-input');
-    initialInputs.forEach(input => {
-      input.addEventListener('input', function() {
-        if (this.value.length > 1) {
-          this.value = this.value.slice(0, 1);
-        }
-          this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase(); // Converte para maiúsculas
-      });
-    });
-
   });
 
   function condicao() {
