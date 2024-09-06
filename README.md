@@ -58,7 +58,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Sobre o Projeto
 
 [![Product Name Screen Shot][product-screenshot]](https://pcantarutti.github.io/Termo-I.A/)
 
@@ -69,11 +69,11 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Prerequisites
+### Pre requisitos
 
 Para usar o projeto a vontade primeiro você precisará de uma chave da API do GEMINI
 
-### Installation
+### Instalação
 
 1. Consiga uma chave API em [https://aistudio.google.com/app/apikey?hl=pt-br](https://aistudio.google.com/app/apikey)
 2. Clone o repositório 
@@ -91,7 +91,7 @@ Para usar o projeto a vontade primeiro você precisará de uma chave da API do G
 
 
 <!-- LICENSE -->
-## License
+## Licença
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
@@ -100,7 +100,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- CONTACT -->
-## Contact
+## Contato
 
 Linkedin: [https://www.linkedin.com/in/pedro-cantarutti-3255b2240/](https://www.linkedin.com/in/pedro-cantarutti-3255b2240/)
 
