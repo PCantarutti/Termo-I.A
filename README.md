@@ -61,6 +61,7 @@
 ## Sobre o Projeto
 
 [![Product Name Screen Shot][product-screenshot-2]](https://pcantarutti.github.io/Termo-I.A/)
+<br />
 [![Product Name Screen Shot][product-screenshot]](https://pcantarutti.github.io/Termo-I.A/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
