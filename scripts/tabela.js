@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if (previousInput && previousInput.classList.contains('single-char-input')) {
         previousInput.focus();
       }
-    } else if ((key === 'ArrowRight' || key === ' ' || key === 'Enter') && activeElement.classList.contains('single-char-input') && activeElement.value !== '') {
+    } else if ((key === 'ArrowRight' || key === ' ' || key === 'Enter') && activeElement.classList.contains('ativo') && activeElement.value != '') {
       // Move o foco para o input seguinte
       const nextInput = activeElement.nextElementSibling;
-      if (nextInput && nextInput.classList.contains('single-char-input')) {
+      if (activeElement.value != ' ' && nextInput.classList.contains('ativo') && nextInput.value != '') {
         nextInput.focus();
       }
     } else if ((key >= 'a' && key <= 'z') && activeElement.classList.contains('single-char-input')) {
