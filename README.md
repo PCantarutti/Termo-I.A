@@ -34,7 +34,6 @@
 <h3 align="center">TERMO I.A GEMINI</h3>
 
   <p align="center">
-    <br />
     <a href="https://pcantarutti.github.io/Termo-I.A/">Testar projeto</a>
   </p>
 </div>
