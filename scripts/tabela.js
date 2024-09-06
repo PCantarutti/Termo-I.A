@@ -15,16 +15,16 @@
   let resultadoResposta = "";
 
 document.addEventListener('DOMContentLoaded', function() {
-
+  
   // Aplicar conversão para maiúsculas na linha de inputs
-  const initialInputs = document.querySelectorAll('.single-char-input');
+  const initialInputs = document.querySelectorAll('.ativo');
   initialInputs.forEach(input => {
-      input.addEventListener('input', function() {
-        if (this.value.length > 1) {
-          this.value = this.value.slice(0, 1);
-        }
-          this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase(); // Converte para maiúsculas
-      });
+    input.addEventListener('input', function() {
+      if (this.value.length > 1) {
+        this.value = this.value.slice(0, 1);
+      }
+        this.value = this.value.replace(/[^a-zA-Z]/g, '').toUpperCase(); // Converte para maiúsculas
+    });
   });
 
   // Listener para o Enter e teclas de navegação nos inputs
