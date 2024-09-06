@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
       input.classList.add('single-char-input', 'ativo');
       input.maxLength = 1;
       input.style.textTransform = 'capitalize';
+      input.setAttribute('autocomplete', 'off');
       return input;
   }
 
