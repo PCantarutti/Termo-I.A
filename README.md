@@ -31,19 +31,11 @@
     <img src="img/apple-touch-icon.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">TERMO I.A GEMINI</h3>
 
   <p align="center">
-    project_description
     <br />
-    <a href="https://github.com/PCantarutti/Termo-I.A"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/PCantarutti/Termo-I.A">View Demo</a>
-    ·
-    <a href="https://github.com/PCantarutti/Termo-I.A/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/PCantarutti/Termo-I.A/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://pcantarutti.github.io/Termo-I.A/">Testar projeto</a>
   </p>
 </div>
 
@@ -51,27 +43,16 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Tabela de conteúdo</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
+      <a href="#about-the-project">Sobre o Projeto</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#license">Licença</a></li>
+    <li><a href="#contact">Contato</a></li>
   </ol>
 </details>
 
@@ -80,9 +61,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+[![Product Name Screen Shot][product-screenshot]](https://pcantarutti.github.io/Termo-I.A/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,13 +76,13 @@ Para usar o projeto a vontade primeiro você precisará de uma chave da API do G
 
 ### Installation
 
-1. Get a free API Key at [https://aistudio.google.com/app/apikey?hl=pt-br](https://aistudio.google.com/app/apikey)
-2. Clone the repo
+1. Consiga uma chave API em [https://aistudio.google.com/app/apikey?hl=pt-br](https://aistudio.google.com/app/apikey)
+2. Clone o repositório 
    ```sh
    git clone https://github.com/PCantarutti/Termo-I.A.git
    ```
 
-3. Enter your API in `gerador_palavras.js`
+3. Coloque sua API em `gerador_palavras.js`
    ```js
    const API_KEY = 'COLOQUE SUA CHAVE API';
    ```
@@ -126,7 +105,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Linkedin: [https://www.linkedin.com/in/pedro-cantarutti-3255b2240/](https://www.linkedin.com/in/pedro-cantarutti-3255b2240/)
 
-Project Link: [https://github.com/PCantarutti/Termo-I.A](https://github.com/PCantarutti/Termo-I.A)
+Link do projeto: [https://github.com/PCantarutti/Termo-I.A](https://github.com/PCantarutti/Termo-I.A)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,10 +122,10 @@ Project Link: [https://github.com/PCantarutti/Termo-I.A](https://github.com/PCan
 [issues-shield]: https://img.shields.io/github/issues/PCantarutti/Termo-I.A.svg?style=for-the-badge
 [issues-url]: https://github.com/PCantarutti/Termo-I.A/issues
 [license-shield]: https://img.shields.io/github/license/PCantarutti/Termo-I.A.svg?style=for-the-badge
-[license-url]: https://github.com/PCantarutti/Termo-I.A/blob/master/LICENSE.txt
+[license-url]: https://github.com/PCantarutti/Termo-I.A/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[linkedin-url]: https://www.linkedin.com/in/pedro-cantarutti-3255b2240
+[product-screenshot]: img/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
