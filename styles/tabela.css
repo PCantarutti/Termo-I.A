@@ -11,6 +11,26 @@
     --fonte-secundaria: "Montserrat", sans-serif;
 }
 
+@keyframes flip {
+    0% {
+        transform: perspective(200px) rotateY(0deg);
+    }
+    49.99999% {
+        transform: perspective(200px) rotateY(90deg);
+    }
+    
+    50% {
+        transform: perspective(200px) rotateY(-90deg);
+    }
+    
+    50.00001% {
+    }
+    
+    100% {
+        transform: perspective(200px) rotateY(0deg);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -27,32 +47,45 @@ body.light {
     background: var(--cor-primaria-claro);
 }
 
+.words {
+    display: flex;
+    justify-content: center;
+    gap: 0.4em;
+    margin: 0.4em;
+}
+
 input {
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
     text-align: center;
-    font-size: xx-large;
+    font-size: 5em;
     border-radius: 10px;
     border-width: 5px;
     border-style: solid;
     border-color: var(--cor-secundaria-escuro);
-    font-size: 3.5rem;
     color: var(--cor-terciaria-escuro);
-    background-color : var(--cor-secundaria-escuro); 
+    background-color : var(--cor-primaria-escuro); 
     outline: none;
+    caret-color: transparent;
+    cursor: pointer;
 }
 
-input.light {
-    border-color: var(--cor-secundaria-claro);
-    color: var(--cor-terciaria-claro);
-    background-color : var(--cor-secundaria-claro); 
+input[disabled] {
+    color: #333;
+    background-color: var(--cor-secundaria-escuro); 
+    cursor: not-allowed; 
+    animation: 0.45s linear flip 0s forwards;
+  }
+
+input:focus {
+    border-bottom: 0.18em solid var(--cor-secundaria-escuro) !important;
 }
 
 .cabecalho {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 0.5em 0 4em 0;
+    margin: 1em 0 4em 0;
 }
 
 .cabecalho__menu {
@@ -77,59 +110,42 @@ input.light {
     color: var(--cor-terciaria-claro);
 }
 
+#formulario {
+    min-height: 65vh;
+}
+
 .controles {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 150px;
-    margin-top: 30vh;
+    margin-bottom: 1em;
+    gap: 20px;
 }
 
-.botao__play {
+.informacao {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 25vw;
-    height: 150px;
-    font-size: 3em;
-    gap: 30px;
-}
-
-.area__prompt {
-    display: flex;
-    align-items: center;
-}
-
-.prompt {
-    width: 500px;
-    font-size: 2em;
-}
-
-p {
-    display: flex;
-    justify-content: center;
-    font-size: 50px;
-    margin-top: 0.5em;
-}
-
-#resultadoGeracaoRuim { 
-    color: red;
     text-align: center;
+    margin-bottom: 1em;
 }
 
-#resultadoGeracaoBom {
-    color: greenyellow;
-    text-align: center;
-    margin: 0 1em 0 1em;
+.texto-tema, .texto-tentativas {
+    color: var(--cor-terciaria-escuro);
 }
 
-#resultadoGeracaoBom.light {
+.light .texto-tema, .light .texto-tentativas {
+    color: var(--cor-terciaria-claro);
+}
+
+strong {
     color: rgb(0, 156, 10);
 }
 
-#loading {
-    display: none;
+.prompt {
+    width: 300px;
+    height: 80%;
 }
 
 @media(max-width: 1145px) {
@@ -137,13 +153,9 @@ p {
     .titulo {
         margin-right: 25.5%;
     }
-
-    .botao__play {
-        width: 40vw;
-    }
 }
 
-@media(max-width: 730px) {
+@media(max-width: 658px) {
 
     .cabecalho {
         display: flex;
@@ -163,13 +175,25 @@ p {
         gap: 20px;
     }
 
-    .botao__play {
-        width: 50vw;
+    input {
+        width: 75px;
+        height: 75px;
+        font-size: 4em;
     }
 
-    .area__prompt {
-        display: flex;
-        flex-direction: column;
+    input:focus {
+        border-bottom: 0.20em solid var(--cor-secundaria-escuro) !important;
+    }
+}
+@media(max-width: 420px) {
+
+    input {
+        width: 60px;
+        height: 60px;
+        font-size: 3em;
     }
 
+    input:focus {
+        border-bottom: 0.23em solid var(--cor-secundaria-escuro) !important;
+    }
 }

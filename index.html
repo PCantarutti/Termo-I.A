@@ -6,19 +6,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/tela_inicial.css">
     <link rel="stylesheet" href="styles/button.css">
+    <link rel="stylesheet" href="styles/loading.css">
     
     <title>Termo I.A</title>
 </head>
-<body>
+<body class="">
     <header class="cabecalho">
-        <nav class="cabecalho__menu">
+        <nav class="cabecalho__menu" id="cabecalho__menu_id">
             <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://github.com/PCantarutti" target="_blank">GitHub</a>
             <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://pedro-cantarutti.vercel.app/" target="_blank">Portfólio</a>
-            <a class="cabecalho__menu__link text-decoration-none text-reset" href="#">Sobre o projeto</a>
+            <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://github.com/PCantarutti/Termo-I.A.git" target="_blank">Sobre o projeto</a>
         </nav>
-        <h1 class="titulo">TERMO I.A</h1>
+        <h1 class="titulo" id="titulo_id">TERMO I.A</h1>
         <label class="theme-switch">
-        <input type="checkbox" class="theme-switch__checkbox">
+        <input type="checkbox" id="chk" class="theme-switch__checkbox">
         <div class="theme-switch__container">
             <div class="theme-switch__clouds"></div>
             <div class="theme-switch__stars-container">
@@ -40,12 +41,33 @@
     </header>
     <section class="controles">
       <div class="">
-        <button class="btn btn-success btn-lg botao__play" type="button" id="botao-play" href="tabela.html">JOGAR</button>
+        <button class="btn btn-success btn-lg botao__play loader" type="button" id="botao-play" href="tabela.html">JOGAR
+        
+          <div id="loading">
+            <div class="loader__balls">
+              <div class="loader__balls__group">
+                <div class="ball item1"></div>
+                <div class="ball item1"></div>
+                <div class="ball item1"></div>
+              </div>
+              <div class="loader__balls__group">
+                <div class="ball item2"></div>
+                <div class="ball item2"></div>
+                <div class="ball item2"></div>
+              </div>
+              <div class="loader__balls__group">
+                <div class="ball item3"></div>
+                <div class="ball item3"></div>
+                <div class="ball item3"></div>
+              </div>
+            </div>
+          </div>
+        </button>
       </div>
         <div class="row g-3 area__prompt">
             <div class="col-auto">
               <label for="inputPassword2" class="visually-hidden">prompt</label>
-              <input autocomplete="off" class="prompt" id="input_prompt" placeholder="Digite um tema para o jogo">
+              <input autocomplete="off" class="prompt" id="input_prompt" placeholder="Digite um tema para o jogo" maxlength="50">
             </div>
             <div class="col-auto">
               <button class="btn btn-secondary btn-lg" id="Confirmar_prompt">Confirmar tema</button>
@@ -61,6 +83,8 @@
         }
       }
     </script>
-    <script src="gerador_palavras.js" type="module"></script>
+    <script src="scripts/gerador_palavras.js" type="module"></script>
+    <script src="scripts/switch_mode_inicio.js"></script>
+    <script src="scripts/loading.js"></script>
 </body>
 </html>

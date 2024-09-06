@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/tabela.css">
     <link rel="stylesheet" href="styles/button.css">
     
     <title>Termo I.A</title>
 </head>
-<body>
+<body class="">
     <header class="cabecalho">
-        <nav class="cabecalho__menu">
+        <nav class="cabecalho__menu" id="cabecalho__menu_id">
             <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://github.com/PCantarutti" target="_blank">GitHub</a>
             <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://pedro-cantarutti.vercel.app/" target="_blank">Portfólio</a>
-            <a class="cabecalho__menu__link text-decoration-none text-reset" href="#">Sobre o projeto</a>
+            <a class="cabecalho__menu__link text-decoration-none text-reset" href="https://github.com/PCantarutti/Termo-I.A.git" target="_blank">Sobre o projeto</a>
         </nav>
-        <h1 class="titulo">TERMO I.A</h1>
+        <h1 class="titulo" id="titulo_id">TERMO I.A</h1>
         <label class="theme-switch">
-        <input type="checkbox" class="theme-switch__checkbox">
+        <input type="checkbox" id="chk" class="theme-switch__checkbox">
         <div class="theme-switch__container">
             <div class="theme-switch__clouds"></div>
             <div class="theme-switch__stars-container">
@@ -37,19 +37,19 @@
             </div>
           </div>
         </label>
-    </header>  
+    </header> 
     <section class="tabela" id="formulario">
         <div class="words" id="container">
-          <input type="text" id="1-input" class="single-char-input ativo" autocomplete="off" maxlength="1" autofocus>
-          <input type="text" id="2-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
-          <input type="text" id="3-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
-          <input type="text" id="4-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
-          <input type="text" id="ultimo-input" class="single-char-input ativo" autocomplete="off" maxlength="1">
+          <input type="text" id="1-input" class="single-char-input ativo" autocomplete="off" maxlength="1" style="text-transform: capitalize;" autofocus>
+          <input type="text" id="2-input" class="single-char-input ativo" autocomplete="off" maxlength="1" style="text-transform: capitalize;">
+          <input type="text" id="3-input" class="single-char-input ativo" autocomplete="off" maxlength="1" style="text-transform: capitalize;">
+          <input type="text" id="4-input" class="single-char-input ativo" autocomplete="off" maxlength="1" style="text-transform: capitalize;">
+          <input type="text" id="ultimo-input" class="single-char-input ativo" autocomplete="off" maxlength="1" style="text-transform: capitalize;">
         </div>
     </section>
     <div class="informacao">
       <h2 class="texto-tema">Tema: <strong id="indicarTema"></strong></h2>
-      <h2 class="texto-tentativas">Tentativas restantes: <strong id="tentativas">6</strong></h2>
+      <h2 class="texto-tentativas" id="texto-tentativas">Tentativas restantes: <strong id="tentativas">6</strong></h2>
     </div>
     <section class="controles">
         <form class="row g-3">
@@ -57,11 +57,12 @@
               <a type="button" class="btn btn-secondary mb-3" id="voltar" href="index.html">Mudar tema</a>
             </div>
             <div class="col-auto botao">
-                <button type="reset" class="btn btn-danger mb-3" onclick="location.reload()">Resetar jogo</button>
+                <button type="reset" class="btn btn-danger mb-3" onclick="location.reload()">Redefinir jogo</button>
               </div>
           </form>
     </section>
-    <script src="tabela.js" type="module"></script>
-    <script src="recuperar_json.js" type="module"></script>
+    <script src="scripts/tabela.js" type="module"></script>
+    <script src="scripts/recuperar_json.js" type="module"></script>
+    <script src="scripts/switch_mode_tabela.js"></script>
 </body>
 </html>
