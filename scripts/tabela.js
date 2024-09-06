@@ -27,33 +27,50 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+
   // Listener para o Enter e teclas de navegação nos inputs
   document.addEventListener('keydown', function(event) {
     const key = event.key;
     const activeElement = document.activeElement;
-  
-    if (key === 'Enter' && activeElement.id === 'ultimo-input' && activeElement.value !== '') {
-      condicao(); // Chama a função condicao quando Enter é pressionado em um input com id 'ultimo-input' com um valor dentro
+
+    const container = document.getElementById('container');
+    
+    const input1 = document.getElementById('1-input');
+    const input2 = document.getElementById('2-input');
+    const input3 = document.getElementById('3-input');
+    const input4 = document.getElementById('4-input');
+    const input5 = document.getElementById('ultimo-input');
+    
+    try {
+    if ((key === 'ArrowRight' || key === ' ' || key === 'Enter') && activeElement.id === 'ultimo-input' && ((input1.classList.contains('single-char-input') && input1.value.trim() !== '') && (input2.classList.contains('single-char-input') && input2.value.trim() !== '') && (input3.classList.contains('single-char-input') && input3.value.trim() !== '') && (input4.classList.contains('single-char-input') && input4.value.trim() !== '') && (input5.classList.contains('single-char-input') && input5.value.trim() !== ''))) {
+
+      // Chama a função condicao quando Enter é pressionado em um input com id 'ultimo-input' com um valor dentro
+      condicao(); 
+      
+      const valor = input1.value + input2.value + input3.value + input4.value + input5.value;
+      console.log(valor);
+
       setTimeout(() => {
         const inputElement = document.getElementById('1-input');
         if (inputElement) {
           inputElement.focus();
         } else {
           // Se todos os elementos com esse id forem apagados, mostrar uma mensagem de erro.
-          console.warn('Elemento com ID "1-input" não encontrado.');
+          console.warn('Fim de jogo');
         }
-    }, 1);
-
-    } else if (key === 'ArrowLeft' && activeElement.classList.contains('single-char-input')) {
+      }, 1);
+    } 
+    
+    else if (key === 'ArrowLeft' && activeElement.classList.contains('ativo')) {
       // Move o foco para o input anterior
       const previousInput = activeElement.previousElementSibling;
-      if (previousInput && previousInput.classList.contains('single-char-input')) {
+      if (previousInput && previousInput.classList.contains('ativo')) {
         previousInput.focus();
       }
-    } else if ((key === 'ArrowRight' || key === ' ' || key === 'Enter') && activeElement.classList.contains('ativo') && activeElement.value != '') {
+    } else if ((key === 'ArrowRight' || key === ' ' || key === 'Enter') && activeElement.classList.contains('ativo')) {
       // Move o foco para o input seguinte
       const nextInput = activeElement.nextElementSibling;
-      if (activeElement.value != ' ' && nextInput.classList.contains('ativo') && nextInput.value != '') {
+      if (nextInput.classList.contains('ativo')) {
         nextInput.focus();
       }
     } else if ((key >= 'a' && key <= 'z') && activeElement.classList.contains('single-char-input')) {
@@ -76,6 +93,15 @@ document.addEventListener('DOMContentLoaded', function() {
         activeElement.value = ''; // limpar o input atual se tiver um valor
       }
     }
+  } catch (error) {
+    if (container.classList.contains('ativo')) {
+      container.classList.add('errado');
+      setTimeout(() => {
+        container.classList.remove('errado');
+      }, 500);
+    }
+    }
+    
   });
 
   function condicao() {
@@ -101,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.style.backgroundColor = "darkgreen";
                     input.style.borderColor = "darkgreen";
                     input.autofocus = false;
+                    input.removeAttribute('id');
                     break;
                 } 
                 else if ((input.id === 'ultimo-input') && input.value === palavra[4]) {
@@ -110,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   input.style.backgroundColor = "darkgreen";
                   input.style.borderColor = "darkgreen";
                   input.autofocus = false;
+                  input.removeAttribute('id');
                   break;
                 } 
                 else if ((input.id === (i+1) + '-input' || input.id === 'ultimo-input') && input.value != palavra[i] && palavra.includes(input.value)) {
@@ -119,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.style.backgroundColor = "yellow";
                     input.style.borderColor = "yellow";
                     input.autofocus = false;
+                    input.removeAttribute('id');
                     break;
                 } 
                 else {
@@ -127,6 +156,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.classList.remove('ativo');
                     input.classList.add('desativado');
                     input.autofocus = false;
+                    setTimeout(() => {
+                      input.removeAttribute('id');
+                    }, 500);
 
                     if (!input.previousSibling || !input.previousElementSibling){
                       break;
@@ -137,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             }
       });
-
+      container.removeAttribute('id');
       criarLinha(); // Chama a função para criar uma nova linha
   }
 
@@ -177,6 +209,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Criar mais divs
         const novaLinha = document.createElement('div');
         novaLinha.classList.add('words');
+        novaLinha.classList.add('ativo');
+        novaLinha.setAttribute("id", "container");
       
         for (let i = 0; i < 5; i++) {
             const novoInput = criarNovoInput();

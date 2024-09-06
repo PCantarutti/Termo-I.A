@@ -31,6 +31,20 @@
     }
 }
 
+@keyframes rownope {
+    10%  { transform: translateX(-14px); }
+    20%  { transform: translateX(14px); }
+    30%  { transform: translateX(-8px); }
+    40%  { transform: translateX(8px); }
+    50%  { transform: translateX(-4px); }
+    60%  { transform: translateX(4px); }
+    70%  { transform: translateX(-2px); }
+    80%  { transform: translateX(2px); }
+    90%  { transform: translateX(-1px); }
+    100% { transform: translateX(1px); }
+  }
+  
+
 * {
     margin: 0;
     padding: 0;
@@ -81,17 +95,8 @@ input:focus {
     border-bottom: 0.18em solid var(--cor-secundaria-escuro) !important;
 }
 
-#\32 -input {
-    pointer-events: none;
-}
-#\33 -input {
-    pointer-events: none;
-}
-#\34 -input {
-    pointer-events: none;
-}
-#ultimo-input {
-    pointer-events: none;
+.errado {
+    animation: 0.45s linear rownope 0s forwards;
 }
 
 .cabecalho {
