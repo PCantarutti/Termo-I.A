@@ -60,7 +60,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Projeto
 
-<p align="right">TERMO I.A: O jogo que te desafia a pensar! Escolha o tema e divirta-se adivinhando palavras com a ajuda do GEMINI para gerar o tema a sua escolha. Desenvolvi usando apenas JavaScript, HTML e CSS.</p>
+<p align="left">TERMO I.A: O jogo que te desafia a pensar! Escolha o tema e divirta-se adivinhando palavras com a ajuda do GEMINI para gerar o tema a sua escolha. Desenvolvi usando apenas JavaScript, HTML e CSS.</p>
 
 [![Product Name Screen Shot][product-screenshot]](https://pcantarutti.github.io/Termo-I.A/)
 
