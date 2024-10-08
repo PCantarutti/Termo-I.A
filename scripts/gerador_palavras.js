@@ -24,7 +24,7 @@ const palavrasPadrao = [
 localStorage.setItem('palavrasGeradas', JSON.stringify(palavrasPadrao));
 localStorage.setItem('tema', JSON.stringify("Geral"));
 
-const API_KEY = "AIzaSyDYrb194r1yd0cwlWvlgx7GbqPoKz9_H80";
+const API_KEY = "AIzaSyANjFgrIFeeXqNLcPpXPvm1e0HruZNgM8w";
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
